@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Các Ngành Học Tương Lai - Khám phá & Lưu trữ</title>
-    <meta name="description" content="Khám phá và lưu trữ những ngành học tiềm năng cho tương lai của bạn.">
+    <title>Các Ngành Học Tương Lai - Cộng Đồng</title>
+    <meta name="description" content="Nơi cùng nhau chia sẻ và khám phá những ngành học tiềm năng cho tương lai.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ====== RESET & BASE STYLES ====== */
         * {
             margin: 0;
             padding: 0;
@@ -13,17 +18,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
-            color: #1a1a2e;
+            color: #1e293b;
+            line-height: 1.6;
         }
 
-        /* Header */
+        /* ====== HEADER ====== */
         .header {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 4rem 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -37,7 +43,7 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-            animation: pulse 4s ease-in-out infinite;
+            animation: pulse 6s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -45,144 +51,224 @@
             50% { transform: scale(1.1); opacity: 0.8; }
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .header-content {
             position: relative;
-            z-index: 1;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .header-icon {
             font-size: 4rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* Container */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .community-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        /* ====== MAIN CONTAINER ====== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 3rem 1.5rem;
         }
 
-        /* Add Form */
-        .add-form {
+        /* ====== FORM EMBED SECTION ====== */
+        .form-section {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0, 123, 255, 0.1);
-            margin-bottom: 40px;
-            border: 1px solid rgba(0, 123, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+            margin-bottom: 3.5rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .add-form h2 {
-            color: #007bff;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .form-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.15);
+        }
+
+        .form-section h2 {
+            color: #1e293b;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.75rem;
         }
 
-        .form-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr auto;
-            gap: 15px;
-            align-items: end;
+        .form-section h2::before {
+            content: "🚀";
+            font-size: 1.5rem;
         }
 
-        @media (max-width: 768px) {
-            .form-group {
-                grid-template-columns: 1fr;
-            }
+        .form-section p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        .input-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        /* Google Form Iframe Styling */
+        .form-iframe-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
         }
 
-        .input-wrapper label {
-            font-weight: 600;
-            color: #333;
-            font-size: 0.9rem;
+        #googleFormIframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
         }
 
-        .input-wrapper input {
-            padding: 14px 18px;
-            border: 2px solid #e0e0e0;
+        .form-note {
+            margin-top: 1.25rem;
+            padding: 1rem;
+            background: #f0f9ff;
             border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            outline: none;
+            border-left: 4px solid #3b82f6;
+            font-size: 0.95rem;
+            color: #1e40af;
         }
 
-        .input-wrapper input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+        .form-note a {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
         }
 
-        .btn-add {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== FIELDS LIST SECTION ====== */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: "📚";
+            font-size: 1.8rem;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             border: none;
-            padding: 14px 30px;
+            padding: 0.75rem 1.5rem;
             border-radius: 10px;
-            font-size: 1rem;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
         }
 
-        .btn-add:hover {
+        .refresh-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
         }
 
-        .btn-add:active {
-            transform: translateY(0);
-        }
-
-        /* Cards Grid */
-        .section-title {
-            font-size: 1.8rem;
-            color: #1a1a2e;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
+        /* ====== CARDS GRID ====== */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 3rem;
         }
 
-        /* Card */
+        /* ====== FIELD CARD ====== */
         .card {
             background: white;
             border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
             transition: all 0.3s ease;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.5s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .card::before {
@@ -192,145 +278,218 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #007bff, #00d4ff);
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 123, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.12);
+            border-color: #e0e7ff;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
         }
 
         .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 18px;
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
         }
 
-        .card h3 {
-            font-size: 1.2rem;
-            color: #1a1a2e;
-            margin-bottom: 12px;
+        .card-id {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            background: #f1f5f9;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
             line-height: 1.4;
         }
 
         .card-link {
-            color: #007bff;
+            color: #3b82f6;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 20px;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
             word-break: break-all;
-            transition: color 0.2s;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
 
         .card-link:hover {
-            color: #0056b3;
-            text-decoration: underline;
+            background: #f0f9ff;
+            border-color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .card-author {
+            font-size: 0.9rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-author::before {
+            content: "👤";
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
 
         .card-actions {
             display: flex;
-            gap: 10px;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
         }
 
-        .btn-view {
+        .card-btn {
             flex: 1;
-            background: #f0f7ff;
-            color: #007bff;
-            border: 2px solid #007bff;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 0.75rem;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
+            border: 2px solid;
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 0.5rem;
+        }
+
+        .btn-view {
+            background: #f0f9ff;
+            color: #3b82f6;
+            border-color: #3b82f6;
         }
 
         .btn-view:hover {
-            background: #007bff;
+            background: #3b82f6;
             color: white;
         }
 
-        .btn-delete {
-            background: #fff5f5;
-            color: #dc3545;
-            border: 2px solid #dc3545;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .btn-share {
+            background: #f0fdf4;
+            color: #10b981;
+            border-color: #10b981;
         }
 
-        .btn-delete:hover {
-            background: #dc3545;
+        .btn-share:hover {
+            background: #10b981;
             color: white;
         }
 
-        /* Empty State */
+        /* ====== EMPTY STATE ====== */
         .empty-state {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 60px 20px;
-            color: #666;
+            padding: 4rem 2rem;
+            color: #64748b;
         }
 
         .empty-state-icon {
             font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.5;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
         }
 
         .empty-state h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #444;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #475569;
         }
 
         .empty-state p {
-            color: #888;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
         }
 
-        /* Toast */
+        .loading-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ====== TOAST NOTIFICATION ====== */
         .toast {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #1a1a2e;
+            background: #1e293b;
             color: white;
-            padding: 16px 24px;
+            padding: 1rem 1.5rem;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
             transform: translateY(100px);
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             z-index: 1000;
+            max-width: 350px;
         }
 
         .toast.show {
@@ -339,269 +498,578 @@
         }
 
         .toast.success {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
 
         .toast.error {
-            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
 
-        /* Footer */
+        .toast.info {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .toast-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ====== FLOATING BUTTONS ====== */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            color: #3b82f6;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-btn.refresh {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .floating-btn.scroll-top {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+
+        /* ====== FOOTER ====== */
         .footer {
             text-align: center;
-            padding: 30px;
-            color: #666;
-            font-size: 0.9rem;
+            padding: 2.5rem 1.5rem;
+            color: #64748b;
+            font-size: 0.95rem;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+            margin-top: 2rem;
         }
 
         .footer a {
-            color: #007bff;
+            color: #3b82f6;
             text-decoration: none;
+            font-weight: 500;
         }
 
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-            position: relative;
-            z-index: 1;
+        .footer a:hover {
+            text-decoration: underline;
         }
 
-        .stat-item {
-            text-align: center;
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2rem; }
+            .header p { font-size: 1.1rem; }
+            .header-icon { font-size: 3.5rem; }
+            .stat-number { font-size: 2rem; }
+            .stats { gap: 2rem; }
+            .container { padding: 2rem 1rem; }
+            .form-section { padding: 1.75rem; }
+            #googleFormIframe { height: 500px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            .refresh-btn { align-self: stretch; justify-content: center; }
+            .floating-buttons { bottom: 20px; left: 20px; }
+            .toast { left: 20px; right: 20px; max-width: calc(100% - 40px); }
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        @media (max-width: 480px) {
+            .header { padding: 3rem 1rem; }
+            .header h1 { font-size: 1.8rem; }
+            .stat-number { font-size: 1.8rem; }
+            .stats { gap: 1.5rem; }
+            .form-section { padding: 1.5rem; }
+            #googleFormIframe { height: 450px; }
+            .card { padding: 1.5rem; }
+            .card-actions { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ====== HEADER ====== -->
     <header class="header">
-        <div class="header-icon">🎓</div>
-        <h1>Các Ngành Học Tương Lai</h1>
-        <p>Khám phá và lưu trữ những ngành học tiềm năng cho tương lai của bạn</p>
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number" id="totalFields">0</div>
-                <div class="stat-label">Ngành học đã lưu</div>
+        <div class="header-content">
+            <div class="header-icon">🌐</div>
+            <h1>Các Ngành Học Tương Lai</h1>
+            <p>Nơi cộng đồng cùng chia sẻ và khám phá những ngành học tiềm năng cho tương lai của bạn</p>
+            <div class="community-badge">
+                <span>🌍 CỘNG ĐỒNG</span>
+                <span>•</span>
+                <span>ĐANG HOẠT ĐỘNG</span>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalFields">0</div>
+                    <div class="stat-label">Ngành học đã chia sẻ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalContributors">0</div>
+                    <div class="stat-label">Thành viên đóng góp</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="lastUpdate">--:--</div>
+                    <div class="stat-label">Cập nhật lúc</div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- ====== MAIN CONTENT ====== -->
     <div class="container">
-        <!-- Add Form -->
-        <div class="add-form">
-            <h2>➕ Thêm Ngành Học Mới</h2>
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <label for="fieldName">Tên ngành học</label>
-                    <input type="text" id="fieldName" placeholder="VD: Trí tuệ nhân tạo (AI)">
-                </div>
-                <div class="input-wrapper">
-                    <label for="fieldLink">Đường link tham khảo</label>
-                    <input type="url" id="fieldLink" placeholder="https://example.com/nganh-hoc">
-                </div>
-                <button class="btn-add" onclick="addField()">
-                    <span>➕</span> Thêm ngành
+        <!-- Google Form Embed Section -->
+        <section class="form-section" id="formSection">
+            <h2>Chia sẻ ngành học với cộng đồng</h2>
+            <p>Điền thông tin vào form bên dưới để đề xuất ngành học mới. Dữ liệu sẽ được tự động lưu vào danh sách chung.</p>
+            
+            <!-- ✅ FORM ID CỦA BẠN ĐÃ ĐƯỢC ĐIỀN SẴN Ở ĐÂY -->
+            <div class="form-iframe-container">
+                <iframe 
+                    id="googleFormIframe"
+                    src="https://docs.google.com/forms/d/e/1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM/viewform?embedded=true"
+                    title="Google Form đề xuất ngành học"
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="form-note">
+                <strong>💡 Lưu ý:</strong> Sau khi gửi form, hãy nhấn nút <strong>"Làm mới danh sách"</strong> phía dưới hoặc chờ 30 giây để xem đề xuất của bạn xuất hiện. 
+                Bạn cũng có thể <a href="javascript:location.reload()">tải lại trang</a> nếu cần.
+            </div>
+        </section>
+
+        <!-- Fields List Section -->
+        <section class="fields-section">
+            <div class="section-header">
+                <h2 class="section-title">Danh sách ngành học từ cộng đồng</h2>
+                <button class="refresh-btn" onclick="loadData(true)">
+                    <span class="refresh-icon">🔄</span>
+                    Làm mới danh sách
                 </button>
             </div>
-        </div>
-
-        <!-- Fields List -->
-        <h2 class="section-title">📚 Danh Sách Ngành Học</h2>
-        <div class="cards-grid" id="cardsGrid">
-            <!-- Cards will be rendered here -->
-        </div>
+            
+            <div class="cards-grid" id="cardsGrid">
+                <!-- Dữ liệu sẽ được tải và hiển thị ở đây -->
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <h3>Đang kết nối với cộng đồng...</h3>
+                    <p>Vui lòng đợi trong giây lát</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Footer -->
+    <!-- ====== FLOATING ACTION BUTTONS ====== -->
+    <div class="floating-buttons">
+        <button class="floating-btn refresh" onclick="loadData(true)" title="Làm mới dữ liệu">
+            🔄
+        </button>
+        <button class="floating-btn scroll-top" onclick="scrollToTop()" title="Về đầu trang">
+            ↑
+        </button>
+    </div>
+
+    <!-- ====== TOAST NOTIFICATION ====== -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toastIcon">ℹ️</span>
+        <span id="toastMessage">Thông báo</span>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
     <footer class="footer">
-        <p>© 2024 Các Ngành Học Tương Lai | Dữ liệu được lưu trữ trên trình duyệt của bạn</p>
+        <p>© 2024 <strong>Các Ngành Học Tương Lai</strong> | Dữ liệu được lưu trữ và chia sẻ công khai bởi cộng đồng</p>
+        <p>Được xây dựng với Google Sheets & GitHub Pages | Dữ liệu tự động cập nhật</p>
     </footer>
 
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <span id="toastMessage"></span>
-    </div>
-
+    <!-- ====== JAVASCRIPT ====== -->
     <script>
-        // Storage key
-        const STORAGE_KEY = 'future-study-fields';
-
-        // Get fields from localStorage
-        function getFields() {
-            const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : [];
-        }
-
-        // Save fields to localStorage
-        function saveFields(fields) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(fields));
-        }
-
-        // Generate unique ID
-        function generateId() {
-            return Date.now().toString(36) + Math.random().toString(36).substr(2);
-        }
-
-        // Show toast notification
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
+        // ============================================
+        // ✅ CẤU HÌNH QUAN TRỌNG - ĐÃ ĐƯỢC ĐIỀN SẴN
+        // ============================================
+        
+        // 1. FORM ID CỦA BẠN - ĐÃ CÓ SẴN
+        const GOOGLE_FORM_ID = '1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM';
+        
+        // 2. LINK CSV XUẤT BẢN TỪ GOOGLE SHEET CỦA BẠN
+        // (Để link hiện tại, nếu không hoạt động thì thay sau)
+        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTPj_Hr6rPcBNHGxRgNlRZC9tE1SaNwr4xHcxYunigi_WMpjkuuWUKAalaNrmWmAqdv-bTUeWEP8zsu/pub?output=csv';
+        
+        // ============================================
+        // KHỞI TẠO BIẾN TOÀN CỤC
+        // ============================================
+        let allFields = [];
+        let contributorsSet = new Set();
+        let lastLoadTime = null;
+        
+        // ============================================
+        // HÀM CHÍNH: TẢI DỮ LIỆU TỪ GOOGLE SHEETS
+        // ============================================
+        async function loadData(showNotification = false) {
+            const grid = document.getElementById('cardsGrid');
             
-            toast.className = 'toast ' + type;
-            toastMessage.textContent = message;
-            toast.classList.add('show');
+            // Hiển thị trạng thái loading
+            grid.innerHTML = `
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <h3>Đang tải dữ liệu từ cộng đồng...</h3>
+                    <p>Vui lòng đợi trong giây lát</p>
+                </div>
+            `;
             
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Validate URL
-        function isValidUrl(string) {
             try {
-                new URL(string);
-                return true;
-            } catch (_) {
-                return false;
+                console.log('🔄 Đang tải dữ liệu từ:', GOOGLE_SHEET_CSV_URL);
+                
+                // Gửi yêu cầu lấy dữ liệu CSV
+                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`Lỗi kết nối: ${response.status} ${response.statusText}`);
+                }
+                
+                const csvText = await response.text();
+                console.log('✅ Dữ liệu CSV đã tải xong, kích thước:', csvText.length, 'ký tự');
+                
+                // Phân tích dữ liệu CSV
+                const { fields, contributors } = parseCSVData(csvText);
+                allFields = fields;
+                contributorsSet = contributors;
+                
+                // Cập nhật thời gian
+                lastLoadTime = new Date();
+                updateLastUpdateTime();
+                
+                // Cập nhật thống kê
+                updateStats();
+                
+                // Hiển thị dữ liệu
+                renderFields();
+                
+                // Hiển thị thông báo nếu cần
+                if (showNotification) {
+                    showToast(`Đã tải ${fields.length} ngành học từ ${contributors.size} thành viên`, 'success');
+                }
+                
+                console.log(`✅ Đã xử lý: ${fields.length} ngành học, ${contributors.size} thành viên`);
+                
+            } catch (error) {
+                console.error('❌ Lỗi khi tải dữ liệu:', error);
+                
+                // Hiển thị thông báo lỗi
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <h3>Không thể kết nối đến dữ liệu cộng đồng</h3>
+                        <p>Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.</p>
+                        <p><small>Lỗi: ${error.message}</small></p>
+                        <button class="refresh-btn" onclick="loadData(true)" style="margin-top: 1rem;">
+                            🔄 Thử lại
+                        </button>
+                    </div>
+                `;
+                
+                showToast('Lỗi khi tải dữ liệu: ' + error.message, 'error');
             }
         }
-
-        // Add new field
-        function addField() {
-            const nameInput = document.getElementById('fieldName');
-            const linkInput = document.getElementById('fieldLink');
+        
+        // ============================================
+        // HÀM PHÂN TÍCH DỮ LIỆU CSV
+        // ============================================
+        function parseCSVData(csvText) {
+            const lines = csvText.split('\n').filter(line => line.trim() !== '');
             
-            const name = nameInput.value.trim();
-            const link = linkInput.value.trim();
-            
-            // Validation
-            if (!name) {
-                showToast('Vui lòng nhập tên ngành học!', 'error');
-                nameInput.focus();
-                return;
+            if (lines.length <= 1) {
+                return { fields: [], contributors: new Set() };
             }
             
-            if (!link) {
-                showToast('Vui lòng nhập đường link!', 'error');
-                linkInput.focus();
-                return;
+            // Lấy tiêu đề (dòng đầu tiên)
+            const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+            
+            // Tìm vị trí các cột quan trọng
+            const nameIndex = headers.findIndex(h => h.includes('tên') || h.includes('name'));
+            const linkIndex = headers.findIndex(h => h.includes('link') || h.includes('url'));
+            const timestampIndex = headers.findIndex(h => h.includes('timestamp') || h.includes('thời gian'));
+            const authorIndex = headers.findIndex(h => h.includes('tên của bạn') || h.includes('author') || h.includes('người đăng'));
+            
+            console.log('📊 Tiêu đề CSV:', headers);
+            console.log('🔍 Vị trí cột:', { nameIndex, linkIndex, timestampIndex, authorIndex });
+            
+            const fields = [];
+            const contributors = new Set();
+            
+            // Xử lý từng dòng dữ liệu (bắt đầu từ dòng thứ 2)
+            for (let i = 1; i < lines.length; i++) {
+                try {
+                    const row = lines[i];
+                    // Xử lý CSV đơn giản - chia theo dấu phẩy
+                    const values = row.split(',');
+                    
+                    // Kiểm tra xem có đủ dữ liệu không
+                    if (values.length <= Math.max(nameIndex, linkIndex, 0)) continue;
+                    
+                    const name = (nameIndex >= 0 && values[nameIndex]) ? values[nameIndex].trim() : '';
+                    const link = (linkIndex >= 0 && values[linkIndex]) ? values[linkIndex].trim() : '';
+                    
+                    // Chỉ thêm nếu có tên ngành học
+                    if (name) {
+                        const author = (authorIndex >= 0 && values[authorIndex]) ? values[authorIndex].trim() : 'Ẩn danh';
+                        const timestamp = (timestampIndex >= 0 && values[timestampIndex]) ? values[timestampIndex].trim() : new Date().toISOString();
+                        
+                        const field = {
+                            id: i,
+                            name: name,
+                            link: link,
+                            author: author || 'Ẩn danh',
+                            timestamp: timestamp,
+                            submittedAt: formatDate(timestamp)
+                        };
+                        
+                        fields.push(field);
+                        
+                        // Thêm tác giả vào danh sách contributors
+                        if (author && author !== 'Ẩn danh') {
+                            contributors.add(author);
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`⚠️ Lỗi khi xử lý dòng ${i}:`, error);
+                }
             }
             
-            if (!isValidUrl(link)) {
-                showToast('Đường link không hợp lệ!', 'error');
-                linkInput.focus();
-                return;
-            }
+            // Đảo ngược thứ tự để mới nhất lên đầu
+            fields.reverse();
             
-            // Create new field
-            const newField = {
-                id: generateId(),
-                name: name,
-                link: link,
-                createdAt: new Date().toISOString()
-            };
-            
-            // Save to localStorage
-            const fields = getFields();
-            fields.unshift(newField);
-            saveFields(fields);
-            
-            // Clear inputs
-            nameInput.value = '';
-            linkInput.value = '';
-            
-            // Re-render
-            renderFields();
-            
-            showToast('Đã thêm ngành học thành công!', 'success');
+            return { fields, contributors };
         }
-
-        // Delete field
-        function deleteField(id) {
-            if (!confirm('Bạn có chắc muốn xóa ngành học này?')) {
-                return;
-            }
-            
-            const fields = getFields();
-            const updatedFields = fields.filter(field => field.id !== id);
-            saveFields(updatedFields);
-            
-            renderFields();
-            showToast('Đã xóa ngành học!', 'success');
-        }
-
-        // Open link
-        function openLink(link) {
-            window.open(link, '_blank');
-        }
-
-        // Render fields
+        
+        // ============================================
+        // HÀM HIỂN THỊ DỮ LIỆU
+        // ============================================
         function renderFields() {
             const grid = document.getElementById('cardsGrid');
-            const fields = getFields();
             
-            // Update stats
-            document.getElementById('totalFields').textContent = fields.length;
-            
-            if (fields.length === 0) {
+            if (!allFields || allFields.length === 0) {
                 grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
+                    <div class="empty-state">
                         <div class="empty-state-icon">📭</div>
-                        <h3>Chưa có ngành học nào</h3>
-                        <p>Hãy thêm ngành học đầu tiên của bạn!</p>
+                        <h3>Chưa có ngành học nào trong cộng đồng</h3>
+                        <p>Hãy là người đầu tiên chia sẻ ngành học bằng form phía trên!</p>
                     </div>
                 `;
                 return;
             }
             
-            grid.innerHTML = fields.map(field => `
+            // Tạo HTML cho từng card
+            grid.innerHTML = allFields.map((field, index) => {
+                // Làm sạch dữ liệu để tránh XSS
+                const safeName = escapeHtml(field.name);
+                const safeLink = escapeHtml(field.link);
+                const safeAuthor = escapeHtml(field.author);
+                
+                // Rút gọn link nếu quá dài
+                const displayLink = safeLink.length > 45 
+                    ? safeLink.substring(0, 45) + '...' 
+                    : safeLink;
+                
+                return `
                 <div class="card">
-                    <div class="card-icon">🎓</div>
-                    <h3>${escapeHtml(field.name)}</h3>
-                    <a href="${escapeHtml(field.link)}" target="_blank" class="card-link">
-                        🔗 ${escapeHtml(field.link.length > 40 ? field.link.substring(0, 40) + '...' : field.link)}
-                    </a>
+                    <div class="card-header">
+                        <div class="card-icon">🎓</div>
+                        <div class="card-id">#${field.id}</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <h3 class="card-title">${safeName}</h3>
+                        
+                        <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <span>🔗</span>
+                            <span>${displayLink}</span>
+                        </a>
+                    </div>
+                    
+                    <div class="card-meta">
+                        <div class="card-author">${safeAuthor}</div>
+                        <div class="card-date">${field.submittedAt}</div>
+                    </div>
+                    
                     <div class="card-actions">
-                        <button class="btn-view" onclick="openLink('${escapeHtml(field.link)}')">
+                        <button class="card-btn btn-view" onclick="openLink('${safeLink}')">
                             🔍 Xem chi tiết
                         </button>
-                        <button class="btn-delete" onclick="deleteField('${field.id}')">
-                            🗑️
+                        <button class="card-btn btn-share" onclick="shareField('${safeName}', '${safeLink}')">
+                            📤 Chia sẻ
                         </button>
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
         }
-
-        // Escape HTML to prevent XSS
+        
+        // ============================================
+        // HÀM CẬP NHẬT THỐNG KÊ
+        // ============================================
+        function updateStats() {
+            document.getElementById('totalFields').textContent = allFields.length;
+            document.getElementById('totalContributors').textContent = contributorsSet.size;
+        }
+        
+        function updateLastUpdateTime() {
+            const element = document.getElementById('lastUpdate');
+            if (lastLoadTime) {
+                const timeStr = lastLoadTime.toLocaleTimeString('vi-VN', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                element.textContent = timeStr;
+            }
+        }
+        
+        // ============================================
+        // HÀM TIỆN ÍCH
+        // ============================================
+        function formatDate(timestamp) {
+            try {
+                const date = new Date(timestamp);
+                if (isNaN(date.getTime())) {
+                    return 'Hôm nay';
+                }
+                return date.toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            } catch (error) {
+                return 'Hôm nay';
+            }
+        }
+        
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
-
-        // Allow Enter key to submit
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && (e.target.id === 'fieldName' || e.target.id === 'fieldLink')) {
-                addField();
+        
+        function openLink(url) {
+            if (url && url.startsWith('http')) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } else {
+                showToast('Link không hợp lệ', 'error');
+            }
+        }
+        
+        function shareField(name, link) {
+            const shareText = `📚 Ngành học: ${name}\n🔗 Xem thêm: ${link}\n\n👉 Khám phá thêm các ngành học khác tại: ${window.location.href}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Ngành học thú vị',
+                    text: shareText,
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Chia sẻ bị hủy:', err);
+                });
+            } else {
+                // Sao chép vào clipboard
+                navigator.clipboard.writeText(shareText)
+                    .then(() => showToast('📋 Đã sao chép thông tin ngành học!', 'success'))
+                    .catch(err => {
+                        console.error('Lỗi sao chép:', err);
+                        showToast('Không thể sao chép', 'error');
+                    });
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // ============================================
+        // HÀM THÔNG BÁO (TOAST)
+        // ============================================
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Đặt biểu tượng và màu sắc
+            let icon = 'ℹ️';
+            if (type === 'success') icon = '✅';
+            if (type === 'error') icon = '❌';
+            if (type === 'info') icon = 'ℹ️';
+            
+            toastIcon.textContent = icon;
+            toastMessage.textContent = message;
+            
+            // Đặt lớp CSS
+            toast.className = 'toast ' + type;
+            
+            // Hiển thị toast
+            toast.classList.add('show');
+            
+            // Tự động ẩn sau 4 giây
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+        
+        // ============================================
+        // KHỞI CHẠY KHI TRANG ĐƯỢC TẢI
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Trang đã sẵn sàng!');
+            console.log('📋 Form ID:', GOOGLE_FORM_ID);
+            console.log('📊 Sheet URL:', GOOGLE_SHEET_CSV_URL);
+            
+            // 1. Tải dữ liệu lần đầu
+            loadData();
+            
+            // 2. Tự động làm mới dữ liệu mỗi 30 giây
+            setInterval(() => {
+                loadData();
+            }, 30000);
+            
+            // 3. Kiểm tra nếu link CSV có vấn đề
+            if (GOOGLE_SHEET_CSV_URL.includes('2PACX')) {
+                console.log('⚠️ Đang sử dụng link CSV xuất bản cũ');
+                console.log('💡 Mẹo: Nếu không thấy dữ liệu, hãy đảm bảo Sheet đã được kết nối với Form');
             }
         });
-
-        // Initial render
-        renderFields();
+        
+        // ============================================
+        // XỬ LÝ SỰ KIỆN BÀN PHÍM
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            // F5 để refresh
+            if (e.key === 'F5') {
+                e.preventDefault();
+                loadData(true);
+            }
+            
+            // Escape để đóng toast
+            if (e.key === 'Escape') {
+                document.getElementById('toast').classList.remove('show');
+            }
+        });
     </script>
 </body>
 </html>
