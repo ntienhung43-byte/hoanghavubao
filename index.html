@@ -131,7 +131,7 @@
             padding: 3rem 1.5rem;
         }
 
-        /* ====== FORM EMBED SECTION ====== */
+        /* ====== FORM DIRECT LINK SECTION ====== */
         .form-section {
             background: white;
             border-radius: 20px;
@@ -167,20 +167,84 @@
             font-size: 1.05rem;
         }
 
-        /* Google Form Iframe Styling */
-        .form-iframe-container {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            background: #f8fafc;
+        /* Form Direct Link Styling */
+        .form-direct-link {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            border: 2px dashed #3b82f6;
+            margin: 1.5rem 0;
         }
-
-        #googleFormIframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            display: block;
+        
+        .form-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-direct-link h3 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .form-direct-link p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+        }
+        
+        .form-link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6);
+            color: white;
+        }
+        
+        .form-steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .step p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
         }
 
         .form-note {
@@ -585,12 +649,13 @@
             .stats { gap: 2rem; }
             .container { padding: 2rem 1rem; }
             .form-section { padding: 1.75rem; }
-            #googleFormIframe { height: 500px; }
             .cards-grid { grid-template-columns: 1fr; }
             .section-header { flex-direction: column; align-items: flex-start; }
             .refresh-btn { align-self: stretch; justify-content: center; }
             .floating-buttons { bottom: 20px; left: 20px; }
             .toast { left: 20px; right: 20px; max-width: calc(100% - 40px); }
+            .form-direct-link { padding: 1.5rem; }
+            .form-steps { flex-direction: column; }
         }
 
         @media (max-width: 480px) {
@@ -599,7 +664,6 @@
             .stat-number { font-size: 1.8rem; }
             .stats { gap: 1.5rem; }
             .form-section { padding: 1.5rem; }
-            #googleFormIframe { height: 450px; }
             .card { padding: 1.5rem; }
             .card-actions { flex-direction: column; }
         }
@@ -637,19 +701,39 @@
 
     <!-- ====== MAIN CONTENT ====== -->
     <div class="container">
-        <!-- Google Form Embed Section -->
+        <!-- Google Form Direct Link Section -->
         <section class="form-section" id="formSection">
             <h2>Chia sẻ ngành học với cộng đồng</h2>
-            <p>Điền thông tin vào form bên dưới để đề xuất ngành học mới. Dữ liệu sẽ được tự động lưu vào danh sách chung.</p>
+            <p>Điền thông tin vào form để đề xuất ngành học mới. Dữ liệu sẽ được tự động lưu vào danh sách chung.</p>
             
-            <!-- ✅ FORM ID CỦA BẠN ĐÃ ĐƯỢC ĐIỀN SẴN Ở ĐÂY -->
-            <div class="form-iframe-container">
-                <iframe 
-                    id="googleFormIframe"
-                    src="https://docs.google.com/forms/d/e/1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM/viewform?embedded=true"
-                    title="Google Form đề xuất ngành học"
-                    loading="lazy">
-                </iframe>
+            <!-- ✅ FORM DIRECT LINK (KHÔNG DÙNG IFRAME) -->
+            <div class="form-direct-link">
+                <div class="form-icon">📝</div>
+                <h3>Nhấn vào đây để đề xuất ngành học mới</h3>
+                <p>Bạn sẽ được chuyển đến Google Form để điền thông tin</p>
+                
+                <a href="https://docs.google.com/forms/d/e/1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM/viewform" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="form-link-btn">
+                    <span>✏️</span>
+                    MỞ FORM ĐỀ XUẤT
+                </a>
+                
+                <div class="form-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Nhấn nút trên để mở Form</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Điền thông tin ngành học</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Quay lại trang này xem kết quả</p>
+                    </div>
+                </div>
             </div>
             
             <div class="form-note">
@@ -704,15 +788,16 @@
     <!-- ====== JAVASCRIPT ====== -->
     <script>
         // ============================================
-        // ✅ CẤU HÌNH QUAN TRỌNG - ĐÃ ĐƯỢC ĐIỀN SẴN
+        // ✅ CẤU HÌNH QUAN TRỌNG
         // ============================================
         
         // 1. FORM ID CỦA BẠN - ĐÃ CÓ SẴN
         const GOOGLE_FORM_ID = '1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM';
         
-        // 2. LINK CSV XUẤT BẢN TỪ GOOGLE SHEET CỦA BẠN
-        // (Để link hiện tại, nếu không hoạt động thì thay sau)
-        const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTPj_Hr6rPcBNHGxRgNlRZC9tE1SaNwr4xHcxYunigi_WMpjkuuWUKAalaNrmWmAqdv-bTUeWEP8zsu/pub?output=csv';
+        // 2. LINK DỮ LIỆU TỪ GOOGLE SHEET
+        // 🚨 QUAN TRỌNG: Bạn cần thay link này bằng link CSV/JSON từ Sheet mới của bạn
+        // Cách lấy: Mở Sheet mới (tạo từ Form) -> File -> Share -> Publish to web -> CSV
+        const GOOGLE_SHEET_DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTPj_Hr6rPcBNHGxRgNlRZC9tE1SaNwr4xHcxYunigi_WMpjkuuWUKAalaNrmWmAqdv-bTUeWEP8zsu/pub?output=csv';
         
         // ============================================
         // KHỞI TẠO BIẾN TOÀN CỤC
@@ -737,21 +822,90 @@
             `;
             
             try {
-                console.log('🔄 Đang tải dữ liệu từ:', GOOGLE_SHEET_CSV_URL);
+                console.log('🔄 Đang tải dữ liệu từ:', GOOGLE_SHEET_DATA_URL);
                 
-                // Gửi yêu cầu lấy dữ liệu CSV
-                const response = await fetch(GOOGLE_SHEET_CSV_URL);
+                // Gửi yêu cầu lấy dữ liệu
+                const response = await fetch(GOOGLE_SHEET_DATA_URL);
                 
                 if (!response.ok) {
                     throw new Error(`Lỗi kết nối: ${response.status} ${response.statusText}`);
                 }
                 
-                const csvText = await response.text();
-                console.log('✅ Dữ liệu CSV đã tải xong, kích thước:', csvText.length, 'ký tự');
+                const text = await response.text();
                 
-                // Phân tích dữ liệu CSV
-                const { fields, contributors } = parseCSVData(csvText);
-                allFields = fields;
+                // Kiểm tra xem có phải JSON response không
+                let fields = [];
+                let contributors = new Set();
+                
+                if (GOOGLE_SHEET_DATA_URL.includes('gviz/tq')) {
+                    // Đây là JSON response
+                    try {
+                        const json = JSON.parse(text.substring(47).slice(0, -2));
+                        const rows = json.table.rows;
+                        
+                        rows.forEach((row, index) => {
+                            const cells = row.c;
+                            if (!cells || cells.length < 4) return;
+                            
+                            // Bỏ qua header (dòng đầu tiên)
+                            if (index === 0) return;
+                            
+                            const field = {
+                                id: index,
+                                name: cells[1] ? (cells[1].v || '') : '',
+                                link: cells[2] ? (cells[2].v || '#') : '#',
+                                author: cells[3] ? (cells[3].v || 'Ẩn danh') : 'Ẩn danh',
+                                timestamp: cells[0] ? (cells[0].v || '') : '',
+                                submittedAt: cells[0] ? formatDate(cells[0].v) : 'Hôm nay'
+                            };
+                            
+                            if (field.name && field.name.trim() !== '') {
+                                fields.push(field);
+                                if (field.author && field.author !== 'Ẩn danh') {
+                                    contributors.add(field.author);
+                                }
+                            }
+                        });
+                    } catch (jsonError) {
+                        console.error('❌ Lỗi parse JSON:', jsonError);
+                        throw new Error('Không thể đọc dữ liệu từ Google Sheet');
+                    }
+                } else {
+                    // Đây là CSV response
+                    const lines = text.split('\n').filter(line => line.trim() !== '');
+                    
+                    if (lines.length > 1) {
+                        const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+                        const nameIndex = headers.findIndex(h => h.includes('tên') || h.includes('name'));
+                        const linkIndex = headers.findIndex(h => h.includes('link') || h.includes('url'));
+                        const authorIndex = headers.findIndex(h => h.includes('tên của bạn') || h.includes('author'));
+                        
+                        for (let i = 1; i < lines.length; i++) {
+                            const values = lines[i].split(',');
+                            const name = (nameIndex >= 0 && values[nameIndex]) ? values[nameIndex].trim() : '';
+                            const link = (linkIndex >= 0 && values[linkIndex]) ? values[linkIndex].trim() : '#';
+                            const author = (authorIndex >= 0 && values[authorIndex]) ? values[authorIndex].trim() : 'Ẩn danh';
+                            
+                            if (name) {
+                                const field = {
+                                    id: i,
+                                    name: name,
+                                    link: link,
+                                    author: author,
+                                    submittedAt: 'Hôm nay'
+                                };
+                                
+                                fields.push(field);
+                                if (author && author !== 'Ẩn danh') {
+                                    contributors.add(author);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Cập nhật dữ liệu
+                allFields = fields.reverse(); // Mới nhất lên đầu
                 contributorsSet = contributors;
                 
                 // Cập nhật thời gian
@@ -779,7 +933,12 @@
                     <div class="empty-state">
                         <div class="empty-state-icon">⚠️</div>
                         <h3>Không thể kết nối đến dữ liệu cộng đồng</h3>
-                        <p>Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.</p>
+                        <p>Vui lòng kiểm tra:</p>
+                        <ol style="text-align: left; max-width: 400px; margin: 1rem auto;">
+                            <li>Google Sheet đã được "Publish to web" chưa?</li>
+                            <li>Link dữ liệu có đúng không?</li>
+                            <li>Sheet có dữ liệu nào không?</li>
+                        </ol>
                         <p><small>Lỗi: ${error.message}</small></p>
                         <button class="refresh-btn" onclick="loadData(true)" style="margin-top: 1rem;">
                             🔄 Thử lại
@@ -789,76 +948,6 @@
                 
                 showToast('Lỗi khi tải dữ liệu: ' + error.message, 'error');
             }
-        }
-        
-        // ============================================
-        // HÀM PHÂN TÍCH DỮ LIỆU CSV
-        // ============================================
-        function parseCSVData(csvText) {
-            const lines = csvText.split('\n').filter(line => line.trim() !== '');
-            
-            if (lines.length <= 1) {
-                return { fields: [], contributors: new Set() };
-            }
-            
-            // Lấy tiêu đề (dòng đầu tiên)
-            const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
-            
-            // Tìm vị trí các cột quan trọng
-            const nameIndex = headers.findIndex(h => h.includes('tên') || h.includes('name'));
-            const linkIndex = headers.findIndex(h => h.includes('link') || h.includes('url'));
-            const timestampIndex = headers.findIndex(h => h.includes('timestamp') || h.includes('thời gian'));
-            const authorIndex = headers.findIndex(h => h.includes('tên của bạn') || h.includes('author') || h.includes('người đăng'));
-            
-            console.log('📊 Tiêu đề CSV:', headers);
-            console.log('🔍 Vị trí cột:', { nameIndex, linkIndex, timestampIndex, authorIndex });
-            
-            const fields = [];
-            const contributors = new Set();
-            
-            // Xử lý từng dòng dữ liệu (bắt đầu từ dòng thứ 2)
-            for (let i = 1; i < lines.length; i++) {
-                try {
-                    const row = lines[i];
-                    // Xử lý CSV đơn giản - chia theo dấu phẩy
-                    const values = row.split(',');
-                    
-                    // Kiểm tra xem có đủ dữ liệu không
-                    if (values.length <= Math.max(nameIndex, linkIndex, 0)) continue;
-                    
-                    const name = (nameIndex >= 0 && values[nameIndex]) ? values[nameIndex].trim() : '';
-                    const link = (linkIndex >= 0 && values[linkIndex]) ? values[linkIndex].trim() : '';
-                    
-                    // Chỉ thêm nếu có tên ngành học
-                    if (name) {
-                        const author = (authorIndex >= 0 && values[authorIndex]) ? values[authorIndex].trim() : 'Ẩn danh';
-                        const timestamp = (timestampIndex >= 0 && values[timestampIndex]) ? values[timestampIndex].trim() : new Date().toISOString();
-                        
-                        const field = {
-                            id: i,
-                            name: name,
-                            link: link,
-                            author: author || 'Ẩn danh',
-                            timestamp: timestamp,
-                            submittedAt: formatDate(timestamp)
-                        };
-                        
-                        fields.push(field);
-                        
-                        // Thêm tác giả vào danh sách contributors
-                        if (author && author !== 'Ẩn danh') {
-                            contributors.add(author);
-                        }
-                    }
-                } catch (error) {
-                    console.warn(`⚠️ Lỗi khi xử lý dòng ${i}:`, error);
-                }
-            }
-            
-            // Đảo ngược thứ tự để mới nhất lên đầu
-            fields.reverse();
-            
-            return { fields, contributors };
         }
         
         // ============================================
@@ -872,7 +961,14 @@
                     <div class="empty-state">
                         <div class="empty-state-icon">📭</div>
                         <h3>Chưa có ngành học nào trong cộng đồng</h3>
-                        <p>Hãy là người đầu tiên chia sẻ ngành học bằng form phía trên!</p>
+                        <p>Hãy là người đầu tiên chia sẻ ngành học!</p>
+                        <a href="https://docs.google.com/forms/d/e/1L_3izorzD-HtV5opwvrPAw3v3IOoAkiPBV7v2frd7VM/viewform" 
+                           target="_blank" 
+                           class="form-link-btn" 
+                           style="display: inline-flex; margin-top: 1rem;">
+                            <span>✏️</span>
+                            Đề xuất ngay
+                        </a>
                     </div>
                 `;
                 return;
@@ -894,7 +990,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="card-icon">🎓</div>
-                        <div class="card-id">#${field.id}</div>
+                        <div class="card-id">#${index + 1}</div>
                     </div>
                     
                     <div class="card-body">
@@ -937,8 +1033,7 @@
             if (lastLoadTime) {
                 const timeStr = lastLoadTime.toLocaleTimeString('vi-VN', { 
                     hour: '2-digit', 
-                    minute: '2-digit',
-                    second: '2-digit'
+                    minute: '2-digit'
                 });
                 element.textContent = timeStr;
             }
@@ -1038,7 +1133,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Trang đã sẵn sàng!');
             console.log('📋 Form ID:', GOOGLE_FORM_ID);
-            console.log('📊 Sheet URL:', GOOGLE_SHEET_CSV_URL);
+            console.log('📊 Data URL:', GOOGLE_SHEET_DATA_URL);
             
             // 1. Tải dữ liệu lần đầu
             loadData();
@@ -1048,10 +1143,10 @@
                 loadData();
             }, 30000);
             
-            // 3. Kiểm tra nếu link CSV có vấn đề
-            if (GOOGLE_SHEET_CSV_URL.includes('2PACX')) {
-                console.log('⚠️ Đang sử dụng link CSV xuất bản cũ');
-                console.log('💡 Mẹo: Nếu không thấy dữ liệu, hãy đảm bảo Sheet đã được kết nối với Form');
+            // 3. Kiểm tra cấu hình
+            if (GOOGLE_SHEET_DATA_URL.includes('1M6IGOzpfEaF2xnxSooLK')) {
+                console.log('⚠️ Đang dùng link JSON từ Sheet cũ');
+                console.log('💡 Mẹo: Nếu không thấy dữ liệu, hãy thay bằng link CSV từ Sheet mới');
             }
         });
         
