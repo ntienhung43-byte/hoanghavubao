@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các Ngành Học Tương Lai - Khám phá & Lưu trữ</title>
+    <meta name="description" content="Khám phá và lưu trữ những ngành học tiềm năng cho tương lai của bạn.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            color: #1a1a2e;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Add Form */
+        .add-form {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 123, 255, 0.1);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+        }
+
+        .add-form h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-wrapper label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .input-wrapper input {
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-add:active {
+            transform: translateY(0);
+        }
+
+        /* Cards Grid */
+        .section-title {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #00d4ff);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 123, 255, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .card-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            flex: 1;
+            background: #f0f7ff;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-view:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-delete {
+            background: #fff5f5;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .empty-state p {
+            color: #888;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a1a2e;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-icon">🎓</div>
+        <h1>Các Ngành Học Tương Lai</h1>
+        <p>Khám phá và lưu trữ những ngành học tiềm năng cho tương lai của bạn</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalFields">0</div>
+                <div class="stat-label">Ngành học đã lưu</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Add Form -->
+        <div class="add-form">
+            <h2>➕ Thêm Ngành Học Mới</h2>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <label for="fieldName">Tên ngành học</label>
+                    <input type="text" id="fieldName" placeholder="VD: Trí tuệ nhân tạo (AI)">
+                </div>
+                <div class="input-wrapper">
+                    <label for="fieldLink">Đường link tham khảo</label>
+                    <input type="url" id="fieldLink" placeholder="https://example.com/nganh-hoc">
+                </div>
+                <button class="btn-add" onclick="addField()">
+                    <span>➕</span> Thêm ngành
+                </button>
+            </div>
+        </div>
+
+        <!-- Fields List -->
+        <h2 class="section-title">📚 Danh Sách Ngành Học</h2>
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Cards will be rendered here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Các Ngành Học Tương Lai | Dữ liệu được lưu trữ trên trình duyệt của bạn</p>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <script>
+        // Storage key
+        const STORAGE_KEY = 'future-study-fields';
+
+        // Get fields from localStorage
+        function getFields() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        // Save fields to localStorage
+        function saveFields(fields) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(fields));
+        }
+
+        // Generate unique ID
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toast.className = 'toast ' + type;
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Validate URL
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        // Add new field
+        function addField() {
+            const nameInput = document.getElementById('fieldName');
+            const linkInput = document.getElementById('fieldLink');
+            
+            const name = nameInput.value.trim();
+            const link = linkInput.value.trim();
+            
+            // Validation
+            if (!name) {
+                showToast('Vui lòng nhập tên ngành học!', 'error');
+                nameInput.focus();
+                return;
+            }
+            
+            if (!link) {
+                showToast('Vui lòng nhập đường link!', 'error');
+                linkInput.focus();
+                return;
+            }
+            
+            if (!isValidUrl(link)) {
+                showToast('Đường link không hợp lệ!', 'error');
+                linkInput.focus();
+                return;
+            }
+            
+            // Create new field
+            const newField = {
+                id: generateId(),
+                name: name,
+                link: link,
+                createdAt: new Date().toISOString()
+            };
+            
+            // Save to localStorage
+            const fields = getFields();
+            fields.unshift(newField);
+            saveFields(fields);
+            
+            // Clear inputs
+            nameInput.value = '';
+            linkInput.value = '';
+            
+            // Re-render
+            renderFields();
+            
+            showToast('Đã thêm ngành học thành công!', 'success');
+        }
+
+        // Delete field
+        function deleteField(id) {
+            if (!confirm('Bạn có chắc muốn xóa ngành học này?')) {
+                return;
+            }
+            
+            const fields = getFields();
+            const updatedFields = fields.filter(field => field.id !== id);
+            saveFields(updatedFields);
+            
+            renderFields();
+            showToast('Đã xóa ngành học!', 'success');
+        }
+
+        // Open link
+        function openLink(link) {
+            window.open(link, '_blank');
+        }
+
+        // Render fields
+        function renderFields() {
+            const grid = document.getElementById('cardsGrid');
+            const fields = getFields();
+            
+            // Update stats
+            document.getElementById('totalFields').textContent = fields.length;
+            
+            if (fields.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">📭</div>
+                        <h3>Chưa có ngành học nào</h3>
+                        <p>Hãy thêm ngành học đầu tiên của bạn!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = fields.map(field => `
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>${escapeHtml(field.name)}</h3>
+                    <a href="${escapeHtml(field.link)}" target="_blank" class="card-link">
+                        🔗 ${escapeHtml(field.link.length > 40 ? field.link.substring(0, 40) + '...' : field.link)}
+                    </a>
+                    <div class="card-actions">
+                        <button class="btn-view" onclick="openLink('${escapeHtml(field.link)}')">
+                            🔍 Xem chi tiết
+                        </button>
+                        <button class="btn-delete" onclick="deleteField('${field.id}')">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && (e.target.id === 'fieldName' || e.target.id === 'fieldLink')) {
+                addField();
+            }
+        });
+
+        // Initial render
+        renderFields();
+    </script>
+</body>
+</html>
